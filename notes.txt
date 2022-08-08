@@ -1,0 +1,98 @@
+StyleSheet
+    .create({})
+    style={[style1, style2]}
+Text
+    numberOfLines,
+    onPress
+View,
+SafeAreaView
+Image
+    source={require("LOCAL_PATH")}
+    source={{uri: "WEB_URL", width: 200, height: 300}}
+    blurRadius={10}
+    loadingIndicatorSource=""
+    fadeDuaration=
+    resizeMode="contain"
+ImageBackground
+    source
+TouchableWithoutFeedback
+    onPress
+    onLongPress
+TouchableOpacity
+TouchableHighlight
+Button
+    onPress
+    color
+    title
+Alert
+    onPress={() => Alert.alert("title", "message", [{text: yes, onPress: ""}, {text: yes, onPress: ""}])}
+    Alert.prompt(title, message, func(text))
+Platform
+    Platform.OS = "android" or "ios"
+    Platform.version = "
+
+
+Dimensions
+    Dimensions.get("window")
+    Dimensions.get("screen")
+
+in app.json, orientation capability"
+    orientation: "landscape", "portrait, "default"
+
+import {useDimentions, useDeviceOrientation} from "@react-native-community/hooks"
+const orientation = useDeviceOrientation()
+
+
+
+
+
+
+styles:
+    flex: 0.5
+    flexDirection: ""
+    flexBasis: 100
+    flexGrow
+    top:
+    shadowColor
+    shadowOffset: {width: 10, height: 10}
+    shadowOpacity: 1
+    shadowRadius: 10
+    elevation
+    paddingHorizontal
+
+Platform.select({
+    ios: {
+        //
+    },
+    android: {
+        //
+    }
+})
+AppText.ios.js
+AppText.android.js
+
+StatusBar
+    StatusBar.currentHeight
+
+FlatList
+    data={}
+    keyExtractor=""
+    renderItem
+    ItemSeparatorComponent
+    refreshing=
+    onRefresh=
+
+import Constants from {expo-constants}
+
+
+picsum.photos
+
+TextInput
+    placeholder
+    onChangeText={(text) => setFirstName(text)}
+    keyboardType
+    secureTextEntry
+
+Switch
+    value
+    onValueChange

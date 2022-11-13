@@ -1,23 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native";
 
-export default function App() {
+import ScreenContainer from "Components/ScreenContainer";
+import Test from "Components/Test";
+
+import { styles } from "Styles";
+
+const App = () => {
   return (
-    <View style={{ ...styles.container, ...styles.test }}>
-      <Text>Open up App.js to start working on your app!!!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <ScreenContainer>
+        <Test />
+      </ScreenContainer>
+    </>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "blue",
-  },
-  test: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;

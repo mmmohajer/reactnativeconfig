@@ -77,7 +77,7 @@ StatusBar
 FlatList
     data={}
     keyExtractor=""
-    renderItem
+    renderItem={({item})} => ()
     ItemSeparatorComponent
     refreshing=
     onRefresh=

@@ -9,6 +9,7 @@ export const colors = {
   silver: "silver",
   orange: "orange",
   green: "green",
+  gray: "gray",
   themeOne: "orange",
   themeTwo: "yellow",
   themeThree: "red",
@@ -39,7 +40,7 @@ export { percentages };
 // ---------------------------------------
 
 const borderRadiusInSize = [];
-for (let i = 0; i <= 100; i += 5) {
+for (let i = 0; i <= 500; i += 5) {
   borderRadiusInSize.push(i);
 }
 export { borderRadiusInSize };
@@ -47,7 +48,7 @@ export { borderRadiusInSize };
 // ---------------------------------------
 
 const borderRadiusInPercentage = [];
-for (let i = 0; i <= 100; i += 5) {
+for (let i = 0; i <= 500; i += 5) {
   borderRadiusInPercentage.push(i);
 }
 export { borderRadiusInPercentage };
@@ -124,3 +125,14 @@ export const flexDirections = {
   col_reverse: "column-reverse",
   row_reverse: "row-reverse",
 };
+
+// ---------------------------------------
+const zIndexValues = [];
+for (let i = 0; i <= 20; i += 1) {
+  zIndexValues.push(i);
+}
+for (let i = 2; i <= 10; i += 1) {
+  let curVal = Math.pow(10, i);
+  zIndexValues.push(curVal);
+}
+export { zIndexValues };

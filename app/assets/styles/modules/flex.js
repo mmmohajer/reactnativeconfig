@@ -59,5 +59,4 @@ Object.keys(flexDirections).forEach((k) => {
   dirObj[`flex_dir_${k}`] = { flexDirection: flexDirections[k] };
 });
 
-console.log(dirObj);
 export { dirObj };

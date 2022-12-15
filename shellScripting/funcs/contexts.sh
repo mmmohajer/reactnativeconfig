@@ -2,7 +2,8 @@ getJsContext() {
     local compName=$1
     compName="$(tr '[:lower:]' '[:upper:]' <<< ${compName:0:1})${compName:1}"
 
-    echo """import { View, Text } from \"react-native\";
+    echo """import { useState, useEffect } from \"react\";
+import { View, Text } from \"react-native\";
 
 import AppView from \"BaseComponents/AppView\";
 import AppText from \"BaseComponents/AppText\";

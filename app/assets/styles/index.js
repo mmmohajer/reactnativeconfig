@@ -17,6 +17,7 @@ import { shadowObject, elevationObj } from "./modules/shadows";
 import { spaceObj } from "./modules/spaces";
 import { flexObj, jcObj, aiObj, wrapObj, dirObj } from "./modules/flex";
 import { fontStyleFunc } from "./modules/fonts";
+import { zIndexObj } from "./modules/zIndex";
 
 export const styles = StyleSheet.create({
   ...textColors,
@@ -37,6 +38,7 @@ export const styles = StyleSheet.create({
   ...aiObj,
   ...wrapObj,
   ...dirObj,
+  ...zIndexObj,
 });
 
 export { fontStyleFunc };

@@ -1,8 +1,4 @@
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native";
+import AppTouchable from "BaseComponents/AppTouchable";
 
 import AppView from "BaseComponents/AppView";
 import AppText from "BaseComponents/AppText";
@@ -15,8 +11,9 @@ import { styles, fontStyleFunc } from "Styles";
 import { localStyles } from "./localStyles";
 
 const Button = ({
-  onPress,
-  onLongPress,
+  onPress = null,
+  onLongPress = null,
+  touchableProps,
   btnType = 1,
   btnWidthInSize = null,
   btnWidthInPer = null,
@@ -26,7 +23,7 @@ const Button = ({
   style,
   ...props
 }) => {
-  let bgColor = colors.themeOne;
+  let bgColor = colors.themeTwo;
   let brColor = colors.themeOne;
   let appliedBtnWidthInSize = null;
   let appliedBtnWidthInPer = null;
@@ -48,39 +45,50 @@ const Button = ({
   }
   return (
     <>
-      <TouchableOpacity
-        onPress={onPress || null}
-        onLongPress={onLongPress || null}
+      <AppTouchable
+        type="highlight"
+        touchableProps={{ onPress, onLongPress, ...touchableProps }}
+        bgColor={bgColor}
+        paddingL={4}
+        paddingR={4}
+        paddingT={1}
+        paddingB={1}
+        brRad={5}
+        brColor={brColor}
+        widthInSize={appliedBtnWidthInSize}
+        widthInPercentage={appliedBtnWidthInPer}
+        isCentralizedInX1Dir={true}
+        isCentralizedInX2Dir={true}
+        style={{ ...styles.shType1, ...style }}
+        {...props}
       >
-        <AppView
-          bgColor={bgColor}
-          paddingL={4}
-          paddingR={4}
-          paddingT={1}
-          paddingB={1}
-          brRad={5}
-          brColor={brColor}
-          widthInSize={appliedBtnWidthInSize}
-          widthInPercentage={appliedBtnWidthInPer}
-          isCentralizedInX1Dir={true}
-          isCentralizedInX2Dir={true}
-          style={{ ...styles.shType1, ...style }}
-          {...props}
-        >
+        <AppView>
           {iconType ? (
-            <AppView dircetion="horizontal" isCentralizedInX2Dir>
+            <AppView direction="row" isCentralizedInX2Dir>
               <AppView marginR={1}>
                 <Icon name={iconType} size={iconSize || 30} />
               </AppView>
-              <AppText isBold textTransform={"uppercase"}>
+              <AppText
+                textProps={{
+                  isBold: true,
+                  textTransform: "uppercase",
+                }}
+              >
                 {btnText}
               </AppText>
             </AppView>
           ) : (
-            <AppText>{btnText}</AppText>
+            <AppText
+              textProps={{
+                isBold: true,
+                textTransform: "uppercase",
+              }}
+            >
+              {btnText}
+            </AppText>
           )}
         </AppView>
-      </TouchableOpacity>
+      </AppTouchable>
     </>
   );
 };

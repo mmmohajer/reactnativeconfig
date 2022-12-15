@@ -11,28 +11,26 @@ const AppImage = ({
   width = null,
   height = null,
   src = null,
+  imgStyle,
   style,
-  imageProps,
+  imgProps,
   ...props
 }) => {
-  let imageStyles = {};
-  if (width) {
-    imageStyles = { ...imageStyles, ...styles[`w${width}`] };
-  }
-  if (height) {
-    imageStyles = { ...imageStyles, ...styles[`h${height}`] };
-  }
   return (
     <>
       <AppView {...props}>
         {isFromUri && (
           <Image
             source={{ width, height, uri: src }}
-            style={imageStyles}
-            {...imageProps}
+            style={imgStyle}
+            {...imgProps}
           />
         )}
-        {!isFromUri && src ? <Image source={src} style={imageStyles} /> : ""}
+        {!isFromUri && src ? (
+          <Image source={src} style={imgStyle} {...imgProps} />
+        ) : (
+          ""
+        )}
       </AppView>
     </>
   );

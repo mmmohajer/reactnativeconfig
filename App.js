@@ -1,15 +1,15 @@
 import { SafeAreaView } from "react-native";
 
 import ScreenContainer from "Components/ScreenContainer";
-import Test from "Components/Test";
+import DevDesign from "Components/DevDesign";
 
 import { styles } from "Styles";
 
 const App = () => {
   return (
     <>
-      <ScreenContainer>
-        <Test />
+      <ScreenContainer isScrollable={false}>
+        <DevDesign />
       </ScreenContainer>
     </>
   );

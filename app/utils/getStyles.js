@@ -247,6 +247,9 @@ export const getAllViewStyles = (props) => {
   if (props?.zIndex) {
     appliedStyle = { ...appliedStyle, ...styles[`zIndex_${props.zIndex}`] };
   }
+  if (props?.opacity) {
+    appliedStyle = { ...appliedStyle, ...styles[`opacity_${props.opacity}`] };
+  }
   return appliedStyle;
 };
 

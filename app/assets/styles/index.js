@@ -18,6 +18,7 @@ import { spaceObj } from "./modules/spaces";
 import { flexObj, jcObj, aiObj, wrapObj, dirObj } from "./modules/flex";
 import { fontStyleFunc } from "./modules/fonts";
 import { zIndexObj } from "./modules/zIndex";
+import { opacityObj } from "./modules/opacities";
 
 export const styles = StyleSheet.create({
   ...textColors,
@@ -39,6 +40,7 @@ export const styles = StyleSheet.create({
   ...wrapObj,
   ...dirObj,
   ...zIndexObj,
+  ...opacityObj,
 });
 
 export { fontStyleFunc };

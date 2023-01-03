@@ -9,10 +9,20 @@ import { styles, fontStyleFunc } from "Styles";
 
 import { localStyles } from "./localStyles";
 
-const AppModal = ({ isActive, setIsActive, children }) => {
+const AppModal = ({
+  isActive,
+  setIsActive,
+  isTransparent = false,
+  animationType = "slide",
+  children,
+}) => {
   return (
     <>
-      <Modal visible={isActive} animationType="slide">
+      <Modal
+        visible={isActive}
+        animationType={animationType}
+        transparent={isTransparent}
+      >
         <SafeAreaView
           style={{ paddingTop: isAndroid() && StatusBar.currentHeight }}
         >

@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "IswadExpoConfig",
+    "slug": "iswad-expo-config",
+    "privacy": "public",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/images/general/icon.png",
@@ -16,9 +17,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.iswad.tech.iswadexpoconfig",
+      "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "com.iswad.tech.iswadxpoconfig",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/general/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

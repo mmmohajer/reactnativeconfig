@@ -47,18 +47,25 @@ createReactBaseComponent() {
 }
 
 createReactPage() {
-    local pageName=$(readData "What is the page name?")
+    local compName=$(readData "What is the screen name?")
     
-    local addr="client/src/pages/$pageName"
+    compName="$(tr '[:lower:]' '[:upper:]' <<< ${compName:0:1})${compName:1}"
+    local addr="app/screens/$compName"
     mkdir -p "$addr"
     
-    local jsContext=$(getJsPageContext Index)
+    local jsContext=$(getJsPageContext $compName)
+    local indexContext="export { default } from \"./$compName\";"
+    local stylesContext=$(getStylesContext)
     
-    local innerIndexFileAddr="client/src/pages/$pageName/index.js"
-    local innersassFileAddr="client/src/pages/$pageName/Index.module.scss"
+    local innerJsFileAddr="app/screens/$compName/$compName.js"
+    local innerIndexFileAddr="app/screens/$compName/index.js"
+    local innerStylesFileAddr="app/screens/$compName/localStyles.js"
     
-    echo "$jsContext" >> "$innerIndexFileAddr"
-    touch "$innersassFileAddr"
+    echo "$jsContext" >> $innerJsFileAddr
+    echo "$indexContext" >> "$innerIndexFileAddr"
+    echo "$stylesContext" >> "$innerStylesFileAddr"
+    
+    echo "Done!"
     
     return 0
 }

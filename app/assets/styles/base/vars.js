@@ -136,3 +136,10 @@ for (let i = 2; i <= 10; i += 1) {
   zIndexValues.push(curVal);
 }
 export { zIndexValues };
+
+// ---------------------------------------
+const opacityValues = [];
+for (let i = 0; i <= 100; i += 5) {
+  opacityValues.push(i / 100);
+}
+export { opacityValues };

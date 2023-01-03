@@ -1,16 +1,17 @@
-import { SafeAreaView } from "react-native";
+import { useState, useEffect, useRef } from "react";
+import { Provider } from "react-redux";
 
-import ScreenContainer from "Components/ScreenContainer";
-import DevDesign from "Components/DevDesign";
+import Routes from "Routes";
+import { store } from "Store";
 
 import { styles } from "Styles";
 
 const App = () => {
   return (
     <>
-      <ScreenContainer isScrollable={false}>
-        <DevDesign />
-      </ScreenContainer>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </>
   );
 };

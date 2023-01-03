@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 
 import AppView from "BaseComponents/AppView";

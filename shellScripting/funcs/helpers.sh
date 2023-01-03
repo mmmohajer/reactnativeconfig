@@ -70,7 +70,7 @@ cat << EOF
 2. Make initial setup on Windows.
 3. Create a new react component.
 4. Create a new react base component.
-5. Create a new react page.
+5. Create a new react screen.
 6. Copy environment variables in server
 7. Deploy to server
 $(echo -en "${I_CYAN}")0. Show MenuBar

@@ -22,6 +22,7 @@ const AnimatedView = ({
   startAnimation = false,
   setStartAnimation = null,
   children,
+  viewProps,
   ...props
 }) => {
   const appliedStyle = getAllViewStyles(props);
@@ -135,6 +136,7 @@ const AnimatedView = ({
           ...appliedStyle,
           ...anmiationStyle,
         }}
+        {...viewProps}
       >
         {children}
       </Animated.View>

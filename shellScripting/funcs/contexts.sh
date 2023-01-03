@@ -38,25 +38,27 @@ getJsPageContext() {
     local compName=$1
     compName="$(tr '[:lower:]' '[:upper:]' <<< ${compName:0:1})${compName:1}"
 
-    echo """import React from \"react\";
-import cx from \"classnames\";
-import { Div } from \"basedesign-iswad\";
+    echo """import { useState, useEffect } from \"react\";
+import { View, Text } from \"react-native\";
 
-import PublicRoute from \"@/components/PublicRoute\";
-import Seo from \"@/components/Seo\";
-import PageContainer from '@/components/PageContainer';
+import AppView from \"BaseComponents/AppView\";
+import AppText from \"BaseComponents/AppText\";
+import ScreenContainer from \"Components/ScreenContainer\";
+import PublicRoute from \"Components/PublicRoute\";
 
-import styles from \"./$compName.module.scss\";
+import { styles, fontStyleFunc } from \"Styles\";
+
+import { localStyles } from \"./localStyles\";
 
 const $compName = () => {
   return (
-    <PublicRoute>
-      <Seo>
-        <PageContainer>
-          <Div>$compName</Div>
-        </PageContainer>
-      </Seo>
-    </PublicRoute>
+    <>
+      <ScreenContainer isScrollable={false}>
+        <PublicRoute>
+          <AppText>$compName</AppText>
+        </PublicRoute>
+      </ScreenContainer>
+    </>
   );
 };
 

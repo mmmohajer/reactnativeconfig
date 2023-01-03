@@ -20,6 +20,7 @@ const AppTouchable = ({
   type = "highlight",
   children,
   touchableProps,
+  style,
   ...props
 }) => {
   const appliedStyle = getAllViewStyles(props);
@@ -27,7 +28,7 @@ const AppTouchable = ({
     <>
       {type === "highlight" && (
         <TouchableHighlight
-          style={{ ...appliedStyle }}
+          style={{ ...appliedStyle, ...style }}
           underlayColor={colors.themeOne}
           {...touchableProps}
         >
@@ -37,7 +38,7 @@ const AppTouchable = ({
 
       {type === "highlight-no-effect" && (
         <TouchableHighlight
-          style={{ ...appliedStyle }}
+          style={{ ...appliedStyle, ...style }}
           underlayColor="none"
           {...touchableProps}
         >
@@ -46,7 +47,10 @@ const AppTouchable = ({
       )}
 
       {type === "opacity" && (
-        <TouchableOpacity {...touchableProps} style={{ ...appliedStyle }}>
+        <TouchableOpacity
+          {...touchableProps}
+          style={{ ...appliedStyle, ...style }}
+        >
           {children}
         </TouchableOpacity>
       )}
@@ -54,7 +58,7 @@ const AppTouchable = ({
       {type === "noFeedback" && (
         <TouchableWithoutFeedback
           {...touchableProps}
-          style={{ ...appliedStyle }}
+          style={{ ...appliedStyle, ...style }}
         >
           <AppView style={{ ...appliedStyle }}>{children}</AppView>
         </TouchableWithoutFeedback>

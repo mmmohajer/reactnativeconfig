@@ -13,20 +13,19 @@ import { styles, fontStyleFunc } from "Styles";
 
 import { localStyles } from "../localStyles";
 
-const SubscriberRoute = ({ children }) => {
+const AllowedGroupRoute = ({ children }) => {
   const navigate = useNavigation();
   const dispatch = useDispatch();
-
   const profile = useSelector((state) => state.profile);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
-  const [isSubscriber, setIsSubscriber] = useState(false);
+  const [isAllowedUser, setIsAllowedUser] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [time, setTime] = useState(5);
 
   useEffect(() => {
     if (isAuthenticated?.isChecked && !isAuthenticated?.authenticated) {
-      setIsSubscriber(false);
+      setIsAllowedUser(false);
       setIsChecked(true);
       dispatch(isLoaded());
     }
@@ -36,24 +35,20 @@ const SubscriberRoute = ({ children }) => {
     if (profile) {
       dispatch(isLoading());
       if (profile?.user?.groups) {
-        if (profile.user.groups?.includes(USER_GROUPS.SUBSCRIBER)) {
-          setIsSubscriber(true);
+        if (profile.user.groups.some((item) => allowedGroup.includes(item))) {
+          setIsAllowedUser(true);
           setIsChecked(true);
         } else {
-          setIsSubscriber(false);
+          setIsAllowedUser(false);
           setIsChecked(true);
         }
-        dispatch(isLoaded());
       }
-      setTimeout(() => {
-        setIsChecked(true);
-        dispatch(isLoaded());
-      }, 2000);
+      dispatch(isLoaded());
     }
   }, [profile]);
 
   useEffect(() => {
-    if (isChecked && !isSubscriber) {
+    if (isChecked && !isAllowedUser) {
       let currentTime = time;
       if (time > 0) {
         setTimeout(() => {
@@ -65,12 +60,12 @@ const SubscriberRoute = ({ children }) => {
         navigate.navigate("Home");
       }
     }
-  }, [isChecked, isSubscriber, time]);
+  }, [isChecked, isAllowedUser, time]);
 
   return (
     <>
-      {isChecked && isSubscriber ? children : ""}
-      {isChecked && !isSubscriber ? (
+      {isChecked && isAllowedUser ? children : ""}
+      {isChecked && !isAllowedUser ? (
         <AppView>
           <AppText>The content of this page is private</AppText>
           <AppText>You will be redirected to home page in {time}s</AppText>
@@ -82,4 +77,4 @@ const SubscriberRoute = ({ children }) => {
   );
 };
 
-export default SubscriberRoute;
+export default AllowedGroupRoute;

@@ -8,19 +8,25 @@ import { USER_GROUPS } from "Constants/userGroups";
 
 import { styles, fontStyleFunc } from "Styles";
 
-import AppAdminRoute from "./subs/AppAdminRoute";
-import SubscriberRoute from "./subs/SubscriberRoute";
+import AllowedGroupRoute from "./subs/AllowedGroupRoute";
 import { localStyles } from "./localStyles";
 
 const RoleBasedRoute = ({ hasAccessRole, children }) => {
   return (
     <>
       <>
-        {hasAccessRole === USER_GROUPS.APP_ADMIN && (
-          <AppAdminRoute>{children}</AppAdminRoute>
-        )}
-        {hasAccessRole === USER_GROUPS.SUBSCRIBER && (
-          <SubscriberRoute>{children}</SubscriberRoute>
+        {hasAccessRole.includes("Public") ? (
+          <>{children}</>
+        ) : (
+          <AllowedGroupRoute
+            allowedGroup={
+              hasAppAdminAccess
+                ? [USER_GROUPS.APP_ADMIN, ...hasAccessRole]
+                : hasAccessRole
+            }
+          >
+            {children}
+          </AllowedGroupRoute>
         )}
       </>
     </>

@@ -3,7 +3,7 @@ expo init . </br>
 Copy/Replace All the files into the created directory </br>
 Remove assets folder from the root folder </br>
 npm install <br/>
-npm install expo-secure-store expo-image-picker @react-native-community/netinfo expo-notifications react-native-community/hooks react-native-gesture-handler @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs @reduxjs/toolkit react-redux <br/>
+npm install expo-secure-store expo-image-picker @react-native-community/netinfo expo-notifications react-native-community/hooks react-native-gesture-handler @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs @reduxjs/toolkit react-redux axios <br/>
 
 To support both portrait and landscape mode in app.json file change: <br/>
 orientation: "portrait" ==> orientation: "default" <br/>
